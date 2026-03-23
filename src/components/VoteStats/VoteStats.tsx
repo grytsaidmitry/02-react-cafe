@@ -1,4 +1,3 @@
-import React from "react";
 import css from "./VoteStats.module.css";
 import type { Votes } from "../../types/votes";
 
@@ -8,30 +7,28 @@ interface VoteStatsProps {
   positiveRate: number;
 }
 
-const VoteStats: React.FC<VoteStatsProps> = ({
+export default function VoteStats({
   votes,
   totalVotes,
   positiveRate,
-}) => {
+}: VoteStatsProps) {
   return (
     <div className={css.container}>
       <p className={css.stat}>
-        Good: <span className={css.value}>{votes.good}</span>
+        Good: <strong>{votes.good}</strong>
       </p>
       <p className={css.stat}>
-        Neutral: <span className={css.value}>{votes.neutral}</span>
+        Neutral: <strong>{votes.neutral}</strong>
       </p>
       <p className={css.stat}>
-        Bad: <span className={css.value}>{votes.bad}</span>
+        Bad: <strong>{votes.bad}</strong>
       </p>
       <p className={css.stat}>
-        Total: <span className={css.value}>{totalVotes}</span>
+        Total: <strong>{totalVotes}</strong>
       </p>
       <p className={css.stat}>
-        Positive: <span className={css.value}>{positiveRate}%</span>
+        Positive: <strong>{positiveRate}%</strong>
       </p>
     </div>
   );
-};
-
-export default VoteStats;
+}

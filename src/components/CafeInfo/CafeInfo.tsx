@@ -1,7 +1,6 @@
-import React from "react";
 import css from "./CafeInfo.module.css";
 
-const CafeInfo: React.FC = () => {
+export default function CafeInfo() {
   return (
     <div className={css.container}>
       <h1 className={css.title}>Sip Happens Café</h1>
@@ -10,6 +9,4 @@ const CafeInfo: React.FC = () => {
       </p>
     </div>
   );
-};
-
-export default CafeInfo;
+}
