@@ -1,22 +1,37 @@
-import {type Votes} from "../../types/votes"
-import styles from "./VoteStats.module.css"
+import React from "react";
+import css from "./VoteStats.module.css";
+import type { Votes } from "../../types/votes";
 
-interface VoteStatsProps{
-    votes: Votes,
-    totalVotes: number,
-    positiveRate : number
+interface VoteStatsProps {
+  votes: Votes;
+  totalVotes: number;
+  positiveRate: number;
 }
 
+const VoteStats: React.FC<VoteStatsProps> = ({
+  votes,
+  totalVotes,
+  positiveRate,
+}) => {
+  return (
+    <div className={css.container}>
+      <p className={css.stat}>
+        Good: <span className={css.value}>{votes.good}</span>
+      </p>
+      <p className={css.stat}>
+        Neutral: <span className={css.value}>{votes.neutral}</span>
+      </p>
+      <p className={css.stat}>
+        Bad: <span className={css.value}>{votes.bad}</span>
+      </p>
+      <p className={css.stat}>
+        Total: <span className={css.value}>{totalVotes}</span>
+      </p>
+      <p className={css.stat}>
+        Positive: <span className={css.value}>{positiveRate}%</span>
+      </p>
+    </div>
+  );
+};
 
-export default function VoteStats({ votes, totalVotes, positiveRate}:VoteStatsProps){
-    return(
-        <div className={styles.container}>
-  <p className={styles.stat}>Good: <strong>{votes.good}</strong></p>
-  <p className={styles.stat}>Neutral: <strong>{votes.neutral}</strong></p>
-  <p className={styles.stat}>Bad: <strong>{votes.bad}</strong></p>
-  <p className={styles.stat}>Total: <strong>{totalVotes}</strong></p>
-  <p className={styles.stat}>Positive: <strong>{positiveRate}%</strong></p>
-</div>
-
-    )
-}
+export default VoteStats;
